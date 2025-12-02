@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeepRide Labs | A Lógica do Preço Dinâmico</title>
+  <meta name="description" content="Investigação completa sobre como apps de transporte como Uber e 99 calculam suas tarifas dinâmicas em tempo real.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-content">
+      <a href="#inicio" class="logo">
+        <span class="logo-icon">🚗</span>
+        Deep<span class="highlight">Ride</span> Labs
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#inicio">Início</a>
+        <a href="#mockups">Mockups</a>
+        <a href="#fluxograma">Fluxograma</a>
+        <a href="#banco-dados">Banco de Dados</a>
+        <a href="#psicologia">Psicologia</a>
+        <a href="#equipe">Equipe</a>
+      </nav>
+      <button class="menu-btn" id="menuBtn">☰</button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="inicio" class="hero">
+    <div class="container">
+      <span class="badge">⚡ Dossiê Digital • Investigação Tecnológica</span>
+      <h1>A Lógica do <span class="highlight">Preço Dinâmico</span></h1>
+      <p class="subtitle">Uma investigação profunda sobre como apps de transporte como <span class="highlight">Uber</span> e <span class="highlight">99</span> calculam suas tarifas em tempo real.</p>
+      
+      <div class="stats">
+        <div class="stat-card">
+          <span class="stat-value">x2.5</span>
+          <span class="stat-label">Multiplicador Máximo</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value">4</span>
+          <span class="stat-label">Tabelas no DER</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value">Real</span>
+          <span class="stat-label">Tempo de Análise</span>
+        </div>
+      </div>
+      
+      <a href="#mockups" class="btn-primary">Explorar Investigação ↓</a>
+    </div>
+  </section>
+
+  <!-- Mockups -->
+  <section id="mockups" class="section">
+    <div class="container">
+      <span class="section-tag">01 // MOCKUPS</span>
+      <h2>Telas <span class="highlight">Raio-X</span></h2>
+      <p class="section-desc">Análise técnica das interfaces que o usuário vê — e o que acontece por trás.</p>
+      
+      <div class="mockups-grid">
+        <!-- Tela 1 -->
+        <div class="mockup-card">
+          <div class="phone-frame">
+            <div class="phone-header">
+              <span>9:41</span>
+              <span>📶 🔋</span>
+            </div>
+            <div class="phone-content">
+              <div class="map-placeholder">
+                <div class="map-grid"></div>
+                <div class="hotspot"></div>
+                <div class="hotspot hotspot-2"></div>
+              </div>
+              <div class="ride-card">
+                <div class="ride-info">
+                  <strong>UberX</strong>
+                  <span class="surge-badge">⚡ x1.7</span>
+                </div>
+                <div class="ride-price">R$ 24,90</div>
+                <div class="ride-time">5 min • 2.3 km</div>
+                <button class="btn-confirm">Confirmar UberX</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="annotations">
+            <h4>📍 Anotações Técnicas</h4>
+            <ul>
+              <li><strong>Zonas vermelhas:</strong> Tabela Zona (pedidos_minuto)</li>
+              <li><strong>Multiplicador x1.7:</strong> Tabela Fatores_Dinâmicos</li>
+              <li><strong>Preço R$ 24,90:</strong> Cálculo via Fluxograma</li>
+              <li><strong>Botão Confirmar:</strong> INSERT na Tabela Corrida</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Tela 2 -->
+        <div class="mockup-card">
+          <div class="phone-frame">
+            <div class="phone-header">
+              <span>9:41</span>
+              <span>📶 🔋</span>
+            </div>
+            <div class="phone-content driver">
+              <h3 class="driver-title">📊 Demanda por Zona</h3>
+              <div class="demand-bars">
+                <div class="demand-item">
+                  <span>Centro</span>
+                  <div class="bar"><div class="bar-fill" style="width: 90%"></div></div>
+                  <span class="demand-high">Alta</span>
+                </div>
+                <div class="demand-item">
+                  <span>Zona Sul</span>
+                  <div class="bar"><div class="bar-fill" style="width: 60%"></div></div>
+                  <span class="demand-med">Média</span>
+                </div>
+                <div class="demand-item">
+                  <span>Zona Norte</span>
+                  <div class="bar"><div class="bar-fill" style="width: 30%"></div></div>
+                  <span class="demand-low">Baixa</span>
+                </div>
+              </div>
+              <div class="driver-alert">
+                🔥 Alta demanda — ganhos até 40% maiores!
+              </div>
+            </div>
+          </div>
+          
+          <div class="annotations">
+            <h4>🚗 Anotações Técnicas</h4>
+            <ul>
+              <li><strong>Nível demanda:</strong> pedidos_minuto / motoristas_ativos</li>
+              <li><strong>Gráfico:</strong> SELECT * FROM Zona ORDER BY demanda</li>
+              <li><strong>Alerta +40%:</strong> multiplicador atual da zona</li>
+              <li><strong>Atualização:</strong> A cada 30 segundos</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fluxograma -->
+  <section id="fluxograma" class="section section-dark">
+    <div class="container">
+      <span class="section-tag">02 // FLUXOGRAMA</span>
+      <h2>Lógica do <span class="highlight">Algoritmo</span></h2>
+      <p class="section-desc">Como o sistema decide quando e quanto aumentar o preço.</p>
+      
+      <div class="flowchart">
+        <div class="flow-step flow-start">INÍCIO</div>
+        <div class="flow-arrow">↓</div>
+        
+        <div class="flow-step flow-process">Sistema recebe local de origem</div>
+        <div class="flow-arrow">↓</div>
+        
+        <div class="flow-step flow-process">Verifica demanda na zona</div>
+        <div class="flow-arrow">↓</div>
+        
+        <div class="flow-step flow-decision">Demanda > Oferta?</div>
+        <div class="flow-branches">
+          <div class="flow-branch">
+            <span class="branch-label">NÃO</span>
+            <div class="flow-step flow-process small">Preço normal</div>
+          </div>
+          <div class="flow-branch">
+            <span class="branch-label">SIM</span>
+            <div class="flow-step flow-process small">Tarifa dinâmica</div>
+          </div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        
+        <div class="flow-step flow-decision">Nível da demanda?</div>
+        <div class="multipliers">
+          <div class="mult-item">
+            <span class="mult-label">Baixa</span>
+            <span class="mult-value">x1.1 - 1.2</span>
+          </div>
+          <div class="mult-item">
+            <span class="mult-label">Média</span>
+            <span class="mult-value">x1.3 - 1.6</span>
+          </div>
+          <div class="mult-item">
+            <span class="mult-label">Alta</span>
+            <span class="mult-value">x1.7 - 2.5</span>
+          </div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        
+        <div class="flow-step flow-process">Consulta banco de dados</div>
+        <div class="flow-arrow">↓</div>
+        
+        <div class="flow-step flow-calc">
+          <strong>CÁLCULO:</strong><br>
+          Preço = (Base + km×valor + min×valor) × multiplicador
+        </div>
+        <div class="flow-arrow">↓</div>
+        
+        <div class="flow-step flow-process">Exibe valor ao usuário</div>
+        <div class="flow-arrow">↓</div>
+        
+        <div class="flow-step flow-end">FIM</div>
+      </div>
+      
+      <div class="explanation-box">
+        <h4>💡 Explicação Simples</h4>
+        <p>A tarifa dinâmica acontece quando existe mais gente pedindo corrida do que motoristas disponíveis. O sistema monitora em tempo real quantas solicitações chegam por minuto e quantos motoristas estão ativos. Quando a demanda sobe, ele aplica um multiplicador no preço para equilibrar o sistema.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Banco de Dados -->
+  <section id="banco-dados" class="section">
+    <div class="container">
+      <span class="section-tag">03 // BANCO DE DADOS</span>
+      <h2>Modelo <span class="highlight">DER</span></h2>
+      <p class="section-desc">Estrutura de dados que sustenta todo o sistema de tarifa dinâmica.</p>
+      
+      <div class="tables-grid">
+        <!-- Tabela Usuário -->
+        <div class="table-card">
+          <div class="table-header red">👤 Usuário</div>
+          <table>
+            <tr><th>Campo</th><th>Tipo</th></tr>
+            <tr><td>id_usuario <span class="pk">PK</span></td><td>INT</td></tr>
+            <tr><td>nome</td><td>VARCHAR</td></tr>
+            <tr><td>metodo_pagamento</td><td>VARCHAR</td></tr>
+            <tr><td>avaliacao_media</td><td>DECIMAL</td></tr>
+          </table>
+        </div>
+
+        <!-- Tabela Corrida -->
+        <div class="table-card">
+          <div class="table-header blue">🚗 Corrida</div>
+          <table>
+            <tr><th>Campo</th><th>Tipo</th></tr>
+            <tr><td>id_corrida <span class="pk">PK</span></td><td>INT</td></tr>
+            <tr><td>id_usuario <span class="fk">FK</span></td><td>INT</td></tr>
+            <tr><td>id_zona <span class="fk">FK</span></td><td>INT</td></tr>
+            <tr><td>distancia_km</td><td>DECIMAL</td></tr>
+            <tr><td>tempo_estimado</td><td>INT</td></tr>
+            <tr><td>preco_final</td><td>DECIMAL</td></tr>
+          </table>
+        </div>
+
+        <!-- Tabela Zona -->
+        <div class="table-card">
+          <div class="table-header green">📍 Zona</div>
+          <table>
+            <tr><th>Campo</th><th>Tipo</th></tr>
+            <tr><td>id_zona <span class="pk">PK</span></td><td>INT</td></tr>
+            <tr><td>nome_zona</td><td>VARCHAR</td></tr>
+            <tr><td>motoristas_ativos</td><td>INT</td></tr>
+            <tr><td>pedidos_minuto</td><td>INT</td></tr>
+          </table>
+        </div>
+
+        <!-- Tabela Fatores -->
+        <div class="table-card">
+          <div class="table-header orange">⚡ Fatores_Dinâmicos</div>
+          <table>
+            <tr><th>Campo</th><th>Tipo</th></tr>
+            <tr><td>id_fator <span class="pk">PK</span></td><td>INT</td></tr>
+            <tr><td>id_zona <span class="fk">FK</span></td><td>INT</td></tr>
+            <tr><td>multiplicador</td><td>DECIMAL</td></tr>
+            <tr><td>horario</td><td>DATETIME</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="relationships">
+        <h4>🔗 Relacionamentos</h4>
+        <ul>
+          <li>Um <strong>Usuário</strong> pode fazer muitas <strong>Corridas</strong> (1:N)</li>
+          <li>Uma <strong>Zona</strong> pode ter muitos <strong>Fatores_Dinâmicos</strong> (1:N)</li>
+          <li>Uma <strong>Corrida</strong> pertence a uma <strong>Zona</strong> (N:1)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Psicologia -->
+  <section id="psicologia" class="section section-dark">
+    <div class="container">
+      <span class="section-tag">04 // PSICOLOGIA</span>
+      <h2>Impacto <span class="highlight">Comportamental</span></h2>
+      <p class="section-desc">Como a tarifa dinâmica influencia as decisões do usuário.</p>
+      
+      <div class="psychology-grid">
+        <div class="psych-card">
+          <div class="psych-icon">😰</div>
+          <h3>FOMO</h3>
+          <p class="psych-subtitle">Fear Of Missing Out</p>
+          <div class="psych-example">
+            "⚠️ Alta demanda — preços temporariamente mais altos!"
+          </div>
+          <p>O usuário sente que, se não pedir agora, pode ficar sem carro. Isso aumenta a <strong>urgência</strong> e reduz a resistência ao preço elevado.</p>
+        </div>
+
+        <div class="psych-card">
+          <div class="psych-icon">🎰</div>
+          <h3>Recompensa Variável</h3>
+          <p class="psych-subtitle">Mecanismo de Cassino</p>
+          <div class="psych-example">
+            "Será que o preço vai baixar em 10 minutos...?"
+          </div>
+          <p>A mudança constante de tarifa faz o usuário <strong>ficar checando</strong> o app repetidamente, esperando o momento certo — gerando <strong>engajamento</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Equipe -->
+  <section id="equipe" class="section">
+    <div class="container">
+      <span class="section-tag">05 // EQUIPE</span>
+      <h2>Os <span class="highlight">Investigadores</span></h2>
+      <p class="section-desc">Conheça a equipe por trás desta investigação tecnológica.</p>
+      
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar blue">💻</div>
+          <h3>Fulano</h3>
+          <p class="team-role">Desenvolvedor Front-End</p>
+          <p class="team-desc">Responsável pela montagem do site, responsividade e animações.</p>
+          <div class="team-skills">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar orange">🔍</div>
+          <h3>Ciclano</h3>
+          <p class="team-role">Investigador Lógico</p>
+          <p class="team-desc">Responsável pelo fluxograma, modelo de dados e análise da lógica.</p>
+          <div class="team-skills">
+            <span>SQL</span>
+            <span>DER</span>
+            <span>Fluxogramas</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <span class="logo">🚗 Deep<span class="highlight">Ride</span> Labs</span>
+      <p>Dossiê Digital • Investigação Tecnológica • 2024</p>
+      <p>Feito com ❤️ para fins educacionais</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
