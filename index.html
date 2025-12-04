@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DeepRide Labs | A Lógica do Preço Dinâmico</title>
-  <meta name="description" content="Investigação completa sobre como apps de transporte como Uber e 99 calculam suas tarifas dinâmicas em tempo real.">
+  <meta name="description"
+    content="Investigação completa sobre como apps de transporte como Uber e 99 calculam suas tarifas dinâmicas em tempo real.">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
   <!-- Header -->
@@ -32,8 +35,9 @@
     <div class="container">
       <span class="badge">⚡ Dossiê Digital • Investigação Tecnológica</span>
       <h1>A Lógica do <span class="highlight">Preço Dinâmico</span></h1>
-      <p class="subtitle">Uma investigação profunda sobre como apps de transporte como <span class="highlight">Uber</span> e <span class="highlight">99</span> calculam suas tarifas em tempo real.</p>
-      
+      <p class="subtitle">Uma investigação profunda sobre como apps de transporte como <span
+          class="highlight">Uber</span> e <span class="highlight">99</span> calculam suas tarifas em tempo real.</p>
+
       <div class="stats">
         <div class="stat-card">
           <span class="stat-value">x2.5</span>
@@ -48,7 +52,7 @@
           <span class="stat-label">Tempo de Análise</span>
         </div>
       </div>
-      
+
       <a href="#mockups" class="btn-primary">Explorar Investigação ↓</a>
     </div>
   </section>
@@ -59,7 +63,7 @@
       <span class="section-tag">01 // MOCKUPS</span>
       <h2>Telas <span class="highlight">Raio-X</span></h2>
       <p class="section-desc">Análise técnica das interfaces que o usuário vê — e o que acontece por trás.</p>
-      
+
       <div class="mockups-grid">
         <!-- Tela 1 -->
         <div class="mockup-card">
@@ -85,7 +89,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="annotations">
             <h4>📍 Anotações Técnicas</h4>
             <ul>
@@ -109,17 +113,23 @@
               <div class="demand-bars">
                 <div class="demand-item">
                   <span>Centro</span>
-                  <div class="bar"><div class="bar-fill" style="width: 90%"></div></div>
+                  <div class="bar">
+                    <div class="bar-fill" style="width: 90%"></div>
+                  </div>
                   <span class="demand-high">Alta</span>
                 </div>
                 <div class="demand-item">
                   <span>Zona Sul</span>
-                  <div class="bar"><div class="bar-fill" style="width: 60%"></div></div>
+                  <div class="bar">
+                    <div class="bar-fill" style="width: 60%"></div>
+                  </div>
                   <span class="demand-med">Média</span>
                 </div>
                 <div class="demand-item">
                   <span>Zona Norte</span>
-                  <div class="bar"><div class="bar-fill" style="width: 30%"></div></div>
+                  <div class="bar">
+                    <div class="bar-fill" style="width: 30%"></div>
+                  </div>
                   <span class="demand-low">Baixa</span>
                 </div>
               </div>
@@ -128,7 +138,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="annotations">
             <h4>🚗 Anotações Técnicas</h4>
             <ul>
@@ -149,17 +159,17 @@
       <span class="section-tag">02 // FLUXOGRAMA</span>
       <h2>Lógica do <span class="highlight">Algoritmo</span></h2>
       <p class="section-desc">Como o sistema decide quando e quanto aumentar o preço.</p>
-      
+
       <div class="flowchart">
         <div class="flow-step flow-start">INÍCIO</div>
         <div class="flow-arrow">↓</div>
-        
+
         <div class="flow-step flow-process">Sistema recebe local de origem</div>
         <div class="flow-arrow">↓</div>
-        
+
         <div class="flow-step flow-process">Verifica demanda na zona</div>
         <div class="flow-arrow">↓</div>
-        
+
         <div class="flow-step flow-decision">Demanda > Oferta?</div>
         <div class="flow-branches">
           <div class="flow-branch">
@@ -172,7 +182,7 @@
           </div>
         </div>
         <div class="flow-arrow">↓</div>
-        
+
         <div class="flow-step flow-decision">Nível da demanda?</div>
         <div class="multipliers">
           <div class="mult-item">
@@ -189,25 +199,27 @@
           </div>
         </div>
         <div class="flow-arrow">↓</div>
-        
+
         <div class="flow-step flow-process">Consulta banco de dados</div>
         <div class="flow-arrow">↓</div>
-        
+
         <div class="flow-step flow-calc">
           <strong>CÁLCULO:</strong><br>
           Preço = (Base + km×valor + min×valor) × multiplicador
         </div>
         <div class="flow-arrow">↓</div>
-        
+
         <div class="flow-step flow-process">Exibe valor ao usuário</div>
         <div class="flow-arrow">↓</div>
-        
+
         <div class="flow-step flow-end">FIM</div>
       </div>
-      
+
       <div class="explanation-box">
         <h4>💡 Explicação Simples</h4>
-        <p>A tarifa dinâmica acontece quando existe mais gente pedindo corrida do que motoristas disponíveis. O sistema monitora em tempo real quantas solicitações chegam por minuto e quantos motoristas estão ativos. Quando a demanda sobe, ele aplica um multiplicador no preço para equilibrar o sistema.</p>
+        <p>A tarifa dinâmica acontece quando existe mais gente pedindo corrida do que motoristas disponíveis. O sistema
+          monitora em tempo real quantas solicitações chegam por minuto e quantos motoristas estão ativos. Quando a
+          demanda sobe, ele aplica um multiplicador no preço para equilibrar o sistema.</p>
       </div>
     </div>
   </section>
@@ -218,17 +230,32 @@
       <span class="section-tag">03 // BANCO DE DADOS</span>
       <h2>Modelo <span class="highlight">DER</span></h2>
       <p class="section-desc">Estrutura de dados que sustenta todo o sistema de tarifa dinâmica.</p>
-      
+
       <div class="tables-grid">
         <!-- Tabela Usuário -->
         <div class="table-card">
           <div class="table-header red">👤 Usuário</div>
           <table>
-            <tr><th>Campo</th><th>Tipo</th></tr>
-            <tr><td>id_usuario <span class="pk">PK</span></td><td>INT</td></tr>
-            <tr><td>nome</td><td>VARCHAR</td></tr>
-            <tr><td>metodo_pagamento</td><td>VARCHAR</td></tr>
-            <tr><td>avaliacao_media</td><td>DECIMAL</td></tr>
+            <tr>
+              <th>Campo</th>
+              <th>Tipo</th>
+            </tr>
+            <tr>
+              <td>id_usuario <span class="pk">PK</span></td>
+              <td>INT</td>
+            </tr>
+            <tr>
+              <td>nome</td>
+              <td>VARCHAR</td>
+            </tr>
+            <tr>
+              <td>metodo_pagamento</td>
+              <td>VARCHAR</td>
+            </tr>
+            <tr>
+              <td>avaliacao_media</td>
+              <td>DECIMAL</td>
+            </tr>
           </table>
         </div>
 
@@ -236,13 +263,34 @@
         <div class="table-card">
           <div class="table-header blue">🚗 Corrida</div>
           <table>
-            <tr><th>Campo</th><th>Tipo</th></tr>
-            <tr><td>id_corrida <span class="pk">PK</span></td><td>INT</td></tr>
-            <tr><td>id_usuario <span class="fk">FK</span></td><td>INT</td></tr>
-            <tr><td>id_zona <span class="fk">FK</span></td><td>INT</td></tr>
-            <tr><td>distancia_km</td><td>DECIMAL</td></tr>
-            <tr><td>tempo_estimado</td><td>INT</td></tr>
-            <tr><td>preco_final</td><td>DECIMAL</td></tr>
+            <tr>
+              <th>Campo</th>
+              <th>Tipo</th>
+            </tr>
+            <tr>
+              <td>id_corrida <span class="pk">PK</span></td>
+              <td>INT</td>
+            </tr>
+            <tr>
+              <td>id_usuario <span class="fk">FK</span></td>
+              <td>INT</td>
+            </tr>
+            <tr>
+              <td>id_zona <span class="fk">FK</span></td>
+              <td>INT</td>
+            </tr>
+            <tr>
+              <td>distancia_km</td>
+              <td>DECIMAL</td>
+            </tr>
+            <tr>
+              <td>tempo_estimado</td>
+              <td>INT</td>
+            </tr>
+            <tr>
+              <td>preco_final</td>
+              <td>DECIMAL</td>
+            </tr>
           </table>
         </div>
 
@@ -250,11 +298,26 @@
         <div class="table-card">
           <div class="table-header green">📍 Zona</div>
           <table>
-            <tr><th>Campo</th><th>Tipo</th></tr>
-            <tr><td>id_zona <span class="pk">PK</span></td><td>INT</td></tr>
-            <tr><td>nome_zona</td><td>VARCHAR</td></tr>
-            <tr><td>motoristas_ativos</td><td>INT</td></tr>
-            <tr><td>pedidos_minuto</td><td>INT</td></tr>
+            <tr>
+              <th>Campo</th>
+              <th>Tipo</th>
+            </tr>
+            <tr>
+              <td>id_zona <span class="pk">PK</span></td>
+              <td>INT</td>
+            </tr>
+            <tr>
+              <td>nome_zona</td>
+              <td>VARCHAR</td>
+            </tr>
+            <tr>
+              <td>motoristas_ativos</td>
+              <td>INT</td>
+            </tr>
+            <tr>
+              <td>pedidos_minuto</td>
+              <td>INT</td>
+            </tr>
           </table>
         </div>
 
@@ -262,11 +325,26 @@
         <div class="table-card">
           <div class="table-header orange">⚡ Fatores_Dinâmicos</div>
           <table>
-            <tr><th>Campo</th><th>Tipo</th></tr>
-            <tr><td>id_fator <span class="pk">PK</span></td><td>INT</td></tr>
-            <tr><td>id_zona <span class="fk">FK</span></td><td>INT</td></tr>
-            <tr><td>multiplicador</td><td>DECIMAL</td></tr>
-            <tr><td>horario</td><td>DATETIME</td></tr>
+            <tr>
+              <th>Campo</th>
+              <th>Tipo</th>
+            </tr>
+            <tr>
+              <td>id_fator <span class="pk">PK</span></td>
+              <td>INT</td>
+            </tr>
+            <tr>
+              <td>id_zona <span class="fk">FK</span></td>
+              <td>INT</td>
+            </tr>
+            <tr>
+              <td>multiplicador</td>
+              <td>DECIMAL</td>
+            </tr>
+            <tr>
+              <td>horario</td>
+              <td>DATETIME</td>
+            </tr>
           </table>
         </div>
       </div>
@@ -288,7 +366,7 @@
       <span class="section-tag">04 // PSICOLOGIA</span>
       <h2>Impacto <span class="highlight">Comportamental</span></h2>
       <p class="section-desc">Como a tarifa dinâmica influencia as decisões do usuário.</p>
-      
+
       <div class="psychology-grid">
         <div class="psych-card">
           <div class="psych-icon">😰</div>
@@ -297,7 +375,8 @@
           <div class="psych-example">
             "⚠️ Alta demanda — preços temporariamente mais altos!"
           </div>
-          <p>O usuário sente que, se não pedir agora, pode ficar sem carro. Isso aumenta a <strong>urgência</strong> e reduz a resistência ao preço elevado.</p>
+          <p>O usuário sente que, se não pedir agora, pode ficar sem carro. Isso aumenta a <strong>urgência</strong> e
+            reduz a resistência ao preço elevado.</p>
         </div>
 
         <div class="psych-card">
@@ -307,7 +386,8 @@
           <div class="psych-example">
             "Será que o preço vai baixar em 10 minutos...?"
           </div>
-          <p>A mudança constante de tarifa faz o usuário <strong>ficar checando</strong> o app repetidamente, esperando o momento certo — gerando <strong>engajamento</strong>.</p>
+          <p>A mudança constante de tarifa faz o usuário <strong>ficar checando</strong> o app repetidamente, esperando
+            o momento certo — gerando <strong>engajamento</strong>.</p>
         </div>
       </div>
     </div>
@@ -319,10 +399,10 @@
       <span class="section-tag">05 // EQUIPE</span>
       <h2>Os <span class="highlight">Investigadores</span></h2>
       <p class="section-desc">Conheça a equipe por trás desta investigação tecnológica.</p>
-      
+
       <div class="team-grid">
         <div class="team-card">
-          
+
           <div class="team-avatar blue">💻</div>
           <h3>João Pedro</h3>
           <p class="team-role">Desenvolvedor Front-End</p>
@@ -333,9 +413,9 @@
             <span>JavaScript</span>
           </div>
           <div class="GitHub">
-           <a href="https://github.com/JoaoCOD2" target="_blank">
-            <img src="sources/github-circle-1.png" alt="">
-           </a>
+            <a href="https://github.com/JoaoCOD2" target="_blank" rel="noopener noreferrer">
+              <img src="sources/github-circle-1.png" alt="GitHub — João Pedro" loading="lazy">
+            </a>
             <p>Clique e acesse meu GitHub</p>
           </div>
         </div>
@@ -351,9 +431,9 @@
             <span>Fluxogramas</span>
           </div>
           <div class="GitHub">
-           <a href="https://github.com/henriquevencato" target="_blank">
-            <img src="sources/github-circle-1.png" alt="">
-           </a>
+            <a href="https://github.com/henriquevencato" target="_blank" rel="noopener noreferrer">
+              <img src="sources/github-circle-1.png" alt="GitHub — Henrique Vencato" loading="lazy">
+            </a>
             <p>Clique e acesse meu GitHub</p>
           </div>
         </div>
@@ -372,4 +452,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>

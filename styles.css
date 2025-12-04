@@ -785,8 +785,21 @@ body {
   }
 }
 
+
 .GitHub img {
   width: 75px;
-  height: 75px;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
   filter: invert(1);
+}
+
+@media (max-width: 420px) {
+  .GitHub img {
+    width: 56px;
+  }
+  .GitHub p {
+    font-size: 0.85rem;
+  }
 }
