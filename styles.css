@@ -423,8 +423,27 @@ body {
 .flow-decision {
   background: rgba(247, 181, 0, 0.1);
   border: 2px solid var(--primary);
-  transform: rotate(0deg);
+  width: 120px;            /* ajuste como quiser */
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transform: rotate(45deg); /* vira o bloco → formato diamante */
+
+  position: relative;       /* importante para o texto */
 }
+
+/* Mantém o texto na horizontal */
+.flow-decision::before {
+  content: attr(data-text);
+  transform: rotate(-45deg);  /* desvira só o texto */
+  position: absolute;
+  text-align: center;
+  width: 100px;               /* ajustável */
+  font-size: 0.85rem;
+}
+
 
 .flow-calc {
   background: rgba(0, 200, 100, 0.1);
